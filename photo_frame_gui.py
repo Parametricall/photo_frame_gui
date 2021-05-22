@@ -7,6 +7,7 @@ from tkinter import ANCHOR, END, Tk, BOTH, W, E
 from tkinter.ttk import Frame, Button, Label, Entry
 from typing import List
 
+from logging_config import setup_logger
 from rasp_pi_connection import Picframe
 
 
@@ -42,9 +43,9 @@ class Gui(Frame):
         self.right_listbox = None
         self.picframe = Picframe()
 
-        self.initUI()
+        self.init_ui()
 
-    def initUI(self):
+    def init_ui(self):
 
         self.master.title("Photo Frame Gui")
         self.pack(fill=BOTH, expand=True)
@@ -88,7 +89,8 @@ class Gui(Frame):
 
         print(self.slideshow_delay_btn.get())
 
-    def on_slideshow_delay_entry(self):
+    @staticmethod
+    def on_slideshow_delay_entry():
         print("slideshow delay entry")
 
     def on_shift_right_click(self):
@@ -105,6 +107,7 @@ class Gui(Frame):
 
 
 def main():
+    setup_logger()
 
     root = Tk()
     root.geometry("500x500+700+300")

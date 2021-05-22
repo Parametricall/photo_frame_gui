@@ -54,7 +54,7 @@ def setup_logger():
             #     "level": LOG_LEVEL,
             # },
             "rasp_pi_connection": {
-                "handlers": ["console"],
+                "handlers": ["file"],
                 "level": LOG_LEVEL,
             },
             # "image_modification": {
